@@ -1,11 +1,12 @@
 Param (
     [string]$fortifyServer,       # SQL Server name
     [string]$fortifyDatabase,     # Database name
-    [string]$outputDir,           # Directory to save the downloaded FRP file
     [string]$applicationName,     # Name of the application to fetch the latest FRP file for
     [string]$userName,            # SQL Server username
     [string]$password             # SQL Server password
 )
+
+$outputDir = "$env:teamcity.build.checkoutDir\artifacts"
 
 # Ensure the output directory exists
 if (!(Test-Path -Path $outputDir)) {
